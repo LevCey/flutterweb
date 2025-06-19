@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_database/firebase_database.dart';
+// import 'package:firebase_database/firebase_database.dart';
 // firebase_options.dart dosyası `flutterfire configure` komutu ile otomatik oluşur.
 import 'firebase_options.dart';
 
