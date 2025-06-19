@@ -34,20 +34,18 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(title),
-        leading: Icon(Icons.notification_add_rounded),
       ),
-      body: Container(
-        padding: EdgeInsets.all(50.0),
-        child: Stack(
-          children: [
-            Image.asset(
-              'assets/images/bg.jpg', // MUST match the path in pubspec.yaml exactly
-              fit: BoxFit.cover,
-              height: 300,
-            ),
-            SizedBox(height: 300, child: Center(child: Text('data'))),
-          ],
-        ),
+      body: Stack(
+        children: [
+          SizedBox(height: 300, child: Center(child: Text('Sizedbox'))),
+          ListTile(
+            leading: Icon(Icons.join_full),
+            tileColor: Colors.red,
+            title: Text('Listtile'),
+            trailing: Text('dfasdfas'),
+            onTap: () {},
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
