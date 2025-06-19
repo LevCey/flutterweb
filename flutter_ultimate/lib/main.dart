@@ -13,7 +13,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter web app',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
+          brightness: Brightness.dark,
+        ),
       ),
       home: const MyHomePage(title: 'Flutter ultimate course'),
     );
@@ -34,23 +37,33 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(title),
       ),
-      body: ValueListenableBuilder(
-        valueListenable: clickNum,
-        builder: (context, value, child) {
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const Text('Click Please as many times... '),
-                Text(
-                  '$value',
-                  style: Theme.of(context).textTheme.headlineMedium,
+      body: Center(
+        child: Container(
+          color: Colors.black38,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                height: 100,
+                width: 100,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(25),
                 ),
-              ],
-            ),
-          );
-        },
+              ),
+              Container(
+                height: 100,
+                width: 100,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(25),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           clickNum.value = clickNum.value + 1;
