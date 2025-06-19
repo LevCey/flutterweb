@@ -35,10 +35,18 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(title),
       ),
-      body: Image.asset(
-        'assets/images/bg.jpg', // MUST match the path in pubspec.yaml exactly
-        height: double.infinity,
-        fit: BoxFit.fitWidth,
+      body: Container(
+        padding: EdgeInsets.all(50.0),
+        child: Stack(
+          children: [
+            Image.asset(
+              'assets/images/bg.jpg', // MUST match the path in pubspec.yaml exactly
+              fit: BoxFit.cover,
+              height: 300,
+            ),
+            SizedBox(height: 300, child: Center(child: Text('data'))),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
