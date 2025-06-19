@@ -19,14 +19,20 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(title: Text('Flutter map'), centerTitle: false),
+        floatingActionButton: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            FloatingActionButton(onPressed: () {}, child: Icon(Icons.add)),
+            SizedBox(height: 10),
+            FloatingActionButton(onPressed: () {}, child: Icon(Icons.add)),
+          ],
+        ),
         bottomNavigationBar: NavigationBar(
           destinations: [
             NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
             NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
           ],
-          onDestinationSelected: (int value) {
-            print(value);
-          },
+          onDestinationSelected: (int value) {},
           selectedIndex: 0,
         ),
       ),
