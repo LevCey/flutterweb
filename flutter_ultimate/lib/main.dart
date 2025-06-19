@@ -34,6 +34,7 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(title),
+        leading: Icon(Icons.notification_add_rounded),
       ),
       body: Container(
         padding: EdgeInsets.all(50.0),
