@@ -23,8 +23,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-ValueNotifier<int> clickNum = ValueNotifier(0);
-
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key, required this.title});
 
@@ -37,37 +35,13 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(title),
       ),
-      body: Center(
-        child: Container(
-          color: Colors.black38,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Container(
-                height: 100,
-                width: 100,
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(25),
-                ),
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(25),
-                ),
-              ),
-            ],
-          ),
-        ),
+      body: Image.asset(
+        'assets/images/bg.jpg', // MUST match the path in pubspec.yaml exactly
+        height: double.infinity,
+        fit: BoxFit.fitWidth,
       ),
-
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          clickNum.value = clickNum.value + 1;
-        },
+        onPressed: () {},
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
