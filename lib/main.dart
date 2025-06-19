@@ -11,9 +11,9 @@ void main() async {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-    print('Firebase başarıyla başlatıldı');
+    print('Firebase başariyla başlatildi');
   } catch (e) {
-    print('Firabase başlatılırken bir hata oluştu: $e');
+    print('Firabase başlatilirken bir hata oluştu: $e');
   }
   runApp(const MyApp());
 }
