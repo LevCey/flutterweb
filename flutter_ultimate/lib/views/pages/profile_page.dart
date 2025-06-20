@@ -74,7 +74,16 @@ class _ProfilePageState extends State<ProfilePage> {
                 });
               },
             ),
-            Image.asset('assets/images/bg.jpg'),
+            GestureDetector(
+              onTap: () {
+                print('image selected');
+              },
+              child: Container(
+                height: 200,
+                width: double.infinity,
+                color: Colors.white12,
+              ),
+            ),
           ],
         ),
       ),
