@@ -12,6 +12,7 @@ class _ProfilePageState extends State<ProfilePage> {
   bool? isChecked = false;
   bool isSwitched = false;
   double sliderValue = 0.0;
+  String? menuItem;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +22,22 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            DropdownButton(
+              style: TextStyle(color: Colors.teal),
+              focusColor: Colors.tealAccent,
+              hint: Text('Element'),
+              value: menuItem,
+              items: [
+                DropdownMenuItem(value: 'el1', child: Text('Element1')),
+                DropdownMenuItem(value: 'el2', child: Text('Element2')),
+                DropdownMenuItem(value: 'el3', child: Text('Element3')),
+              ],
+              onChanged: (value) {
+                setState(() {
+                  menuItem = value;
+                });
+              },
+            ),
             TextField(
               controller: controller,
               decoration: InputDecoration(border: OutlineInputBorder()),
@@ -70,20 +87,39 @@ class _ProfilePageState extends State<ProfilePage> {
               onChanged: (double value) {
                 setState(() {
                   sliderValue = value;
-                  print(value);
+                  // print(value);
                 });
               },
             ),
-            GestureDetector(
+            InkWell(
+              splashColor: Colors.teal.shade300,
+              hoverColor: Colors.tealAccent,
               onTap: () {
-                print('image selected');
+                // print('image selected');
               },
               child: Container(
-                height: 200,
+                height: 50,
                 width: double.infinity,
-                color: Colors.white12,
+                color: Colors.black54,
               ),
             ),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.teal,
+                foregroundColor: Colors.white,
+              ),
+              child: Text('Click me'),
+            ),
+            FilledButton(
+              onPressed: () {},
+              style: FilledButton.styleFrom(foregroundColor: Colors.white),
+              child: Text('Click me'),
+            ),
+            TextButton(onPressed: () {}, child: Text('Click me')),
+            OutlinedButton(onPressed: () {}, child: Text('Click me')),
+            CloseButton(),
+            BackButton(),
           ],
         ),
       ),
