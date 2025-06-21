@@ -1,3 +1,5 @@
+import 'package:flutte_ultimate/data/notifiers.dart';
+import 'package:flutte_ultimate/views/pages/wellcome_page.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -5,6 +7,22 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Profile page'));
+    return Padding(
+      padding: EdgeInsets.all(20),
+      child: Column(
+        children: [
+          ListTile(
+            title: Text('Logout'),
+            onTap: () {
+              selectedPageNotifier.value = 0;
+              Navigator.pushReplacement(
+                (context),
+                MaterialPageRoute(builder: (context) => WellcomePage()),
+              );
+            },
+          ),
+        ],
+      ),
+    );
   }
 }

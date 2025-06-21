@@ -1,4 +1,5 @@
 import 'package:flutte_ultimate/data/notifiers.dart';
+import 'package:flutte_ultimate/views/pages/wellcome_page.dart';
 import 'package:flutte_ultimate/views/widget_tree.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
               brightness: isDarkMode ? Brightness.dark : Brightness.light,
             ),
           ),
-          home: WidgetTree(),
+          home: WellcomePage(),
         );
       },
     );
