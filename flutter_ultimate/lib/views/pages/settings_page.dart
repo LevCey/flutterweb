@@ -35,6 +35,48 @@ class _SettingsPageState extends State<SettingsPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              ElevatedButton(
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Snackbar'),
+                      duration: Duration(seconds: 1),
+                      behavior: SnackBarBehavior.fixed,
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.teal,
+                  foregroundColor: Colors.white,
+                ),
+                child: Text('Click for Snackbar'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Text('Alert Title'),
+                        content: Text('Alert Dialog'),
+                        actions: [
+                          FilledButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text('Close'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.teal,
+                  foregroundColor: Colors.white,
+                ),
+                child: Text('Open Dialog'),
+              ),
               DropdownButton(
                 style: TextStyle(color: Colors.teal),
                 focusColor: Colors.tealAccent,
@@ -115,14 +157,6 @@ class _SettingsPageState extends State<SettingsPage> {
                   width: double.infinity,
                   color: Colors.black54,
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.teal,
-                  foregroundColor: Colors.white,
-                ),
-                child: Text('Click me'),
               ),
               FilledButton(
                 onPressed: () {},
