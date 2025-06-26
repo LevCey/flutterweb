@@ -27,6 +27,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    // double widthScreen = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
