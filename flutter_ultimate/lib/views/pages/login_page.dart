@@ -43,44 +43,47 @@ class _LoginPageState extends State<LoginPage> {
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.all(20.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Lottie.asset('assets/lotties/home.json', height: 400.0),
-                SizedBox(height: 20),
-                TextField(
-                  controller: controllerEmail,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hint: Text('E-mail'),
+            child: FractionallySizedBox(
+              widthFactor: 0.7,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Lottie.asset('assets/lotties/home.json', height: 400.0),
+                  SizedBox(height: 20),
+                  TextField(
+                    controller: controllerEmail,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hint: Text('E-mail'),
+                    ),
+                    onEditingComplete: () {
+                      setState(() {});
+                    },
                   ),
-                  onEditingComplete: () {
-                    setState(() {});
-                  },
-                ),
-                SizedBox(height: 10),
-                TextField(
-                  controller: controllerPw,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hint: Text('Password'),
+                  SizedBox(height: 10),
+                  TextField(
+                    controller: controllerPw,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hint: Text('Password'),
+                    ),
+                    onEditingComplete: () {
+                      setState(() {});
+                    },
                   ),
-                  onEditingComplete: () {
-                    setState(() {});
-                  },
-                ),
-                SizedBox(height: 20.0),
-                FilledButton(
-                  onPressed: () {
-                    onLoginPressed();
-                  },
-                  style: FilledButton.styleFrom(
-                    minimumSize: Size(double.infinity, 40.0),
+                  SizedBox(height: 20.0),
+                  FilledButton(
+                    onPressed: () {
+                      onLoginPressed();
+                    },
+                    style: FilledButton.styleFrom(
+                      minimumSize: Size(double.infinity, 40.0),
+                    ),
+                    child: Text(widget.title),
                   ),
-                  child: Text(widget.title),
-                ),
-                SizedBox(height: 50.0),
-              ],
+                  SizedBox(height: 50.0),
+                ],
+              ),
             ),
           ),
         ),
