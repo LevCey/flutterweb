@@ -7,60 +7,52 @@ class ExpandedFlexiblePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  flex: 4,
-                  child: Container(
-                    color: Colors.teal,
-                    height: 20.0,
-                    child: Text('Hello'),
-                  ),
+      body: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                flex: 4,
+                child: Container(
+                  color: Colors.teal,
+                  height: 20.0,
+                  child: Text('Hello'),
                 ),
-                Flexible(
-                  flex: 2,
-                  child: Container(
-                    alignment: Alignment.center,
-                    color: Colors.orange,
-                    height: 20.0,
-                    child: Text(
-                      'Hello',
-                      style: TextStyle(color: Colors.black87),
-                    ),
-                  ),
+              ),
+              Flexible(
+                flex: 2,
+                child: Container(
+                  alignment: Alignment.center,
+                  color: Colors.orange,
+                  height: 20.0,
+                  child: Text('Hello', style: TextStyle(color: Colors.black87)),
                 ),
-              ],
-            ),
-            Divider(),
-            Row(
-              children: [
-                Flexible(
-                  flex: 2,
-                  child: Container(
-                    alignment: Alignment.center,
-                    color: Colors.orange,
-                    height: 20.0,
-                    child: Text(
-                      'Hello',
-                      style: TextStyle(color: Colors.black87),
-                    ),
-                  ),
+              ),
+            ],
+          ),
+          Divider(),
+          Row(
+            children: [
+              Flexible(
+                flex: 2,
+                child: Container(
+                  alignment: Alignment.center,
+                  color: Colors.orange,
+                  height: 20.0,
+                  child: Text('Hello', style: TextStyle(color: Colors.black87)),
                 ),
-                Expanded(
-                  flex: 4,
-                  child: Container(
-                    color: Colors.teal,
-                    height: 20.0,
-                    child: Text('Hello'),
-                  ),
+              ),
+              Expanded(
+                flex: 4,
+                child: Container(
+                  color: Colors.teal,
+                  height: 20.0,
+                  child: Text('Hello'),
                 ),
-              ],
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

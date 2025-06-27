@@ -1,8 +1,34 @@
 import 'package:flutte_ultimate/views/widgets/hero_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert' as convert;
 
-class CoursePage extends StatelessWidget {
+class CoursePage extends StatefulWidget {
   const CoursePage({super.key});
+
+  @override
+  State<CoursePage> createState() => _CoursePageState();
+}
+
+class _CoursePageState extends State<CoursePage> {
+  @override
+  void initState() {
+    // getData();
+    super.initState();
+  }
+
+  void getData() async {
+    var url = Uri.https('bored-api.appbrewery.com', '/random');
+    var response = await http.get(url);
+    if (response.statusCode == 200) {
+      var jsonResponse =
+          convert.jsonDecode(response.body) as Map<String, dynamic>;
+      var activity = jsonResponse['activity'];
+      //  print('$activity');
+    } else {
+      //  print('Request failed with status: ${response.statusCode}.');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
