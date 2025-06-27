@@ -1,7 +1,9 @@
+import 'dart:convert';
+import 'package:flutte_ultimate/data/classes/activity_class.dart';
+import 'package:flutte_ultimate/data/constants.dart';
 import 'package:flutte_ultimate/views/widgets/hero_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'dart:convert' as convert;
 
 class CoursePage extends StatefulWidget {
   const CoursePage({super.key});
@@ -17,16 +19,15 @@ class _CoursePageState extends State<CoursePage> {
     super.initState();
   }
 
-  void getData() async {
+  Future<Activity> getData() async {
     var url = Uri.https('bored-api.appbrewery.com', '/random');
     var response = await http.get(url);
     if (response.statusCode == 200) {
-      var jsonResponse =
-          convert.jsonDecode(response.body) as Map<String, dynamic>;
-      var activity = jsonResponse['activity'];
-      //  print('$activity');
+      return Activity.fromJson(
+        jsonDecode(response.body) as Map<String, dynamic>,
+      );
     } else {
-      //  print('Request failed with status: ${response.statusCode}.');
+      throw Exception('Failed to load album');
     }
   }
 
@@ -34,11 +35,33 @@ class _CoursePageState extends State<CoursePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.0),
-        child: SingleChildScrollView(
-          child: Column(children: [HeroWidget(title: 'Course')]),
-        ),
+      body: FutureBuilder(
+        future: getData(),
+        builder: (context, AsyncSnapshot snapshot) {
+          Widget widget;
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            widget = Center(child: CircularProgressIndicator());
+          }
+          if (snapshot.hasData) {
+            Activity activity = snapshot.data;
+            widget = Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    HeroWidget(title: activity.activity),
+                    Text(activity.activity),
+                  ],
+                ),
+              ),
+            );
+          } else {
+            widget = Center(
+              child: Text('Error', style: KTextStyle.titleTealText),
+            );
+          }
+          return widget;
+        },
       ),
     );
   }
