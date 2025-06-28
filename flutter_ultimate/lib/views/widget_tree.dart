@@ -16,7 +16,7 @@ class WidgetTree extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter map'),
+        title: Text('Flutter web app'),
         actions: [
           IconButton(
             onPressed: () async {

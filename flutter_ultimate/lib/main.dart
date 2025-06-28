@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
       valueListenable: isDarkModeNotifier,
       builder: (context, isDarkMode, child) {
         return MaterialApp(
-          title: 'Levent App',
+          title: 'Levent Dapp',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(

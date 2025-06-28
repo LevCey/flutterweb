@@ -169,7 +169,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                   );
                 },
-                child: Text('Show flexible and expanded'),
+                child: Text('Show Flexible and Expanded'),
               ),
               FilledButton(
                 onPressed: () {},
