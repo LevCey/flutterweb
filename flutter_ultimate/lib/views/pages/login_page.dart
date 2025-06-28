@@ -11,7 +11,11 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPage>
+    with SingleTickerProviderStateMixin {
+  // Lottie animasyon kontrolcüsü
+  late final AnimationController _controller;
+
   TextEditingController controllerEmail = TextEditingController(text: '123');
   TextEditingController controllerPw = TextEditingController(text: '456');
 
@@ -19,9 +23,22 @@ class _LoginPageState extends State<LoginPage> {
   String confirmedPw = '456';
 
   @override
+  void initState() {
+    super.initState();
+    // Animasyonu başlatmak için bir kontrolcüye ihtiyacımız var.
+    _controller = AnimationController(vsync: this);
+
+    // Animasyonu önceden yüklemek için addListener kullanabiliriz.
+    // Ancak en basit yöntem, Lottie.asset'in otomatik olarak yapmasına izin vermektir.
+    // Sadece kontrolcü ile yönetmek de bir çözüm olabilir.
+  }
+
+  @override
   void dispose() {
     controllerEmail.dispose();
     controllerPw.dispose();
+    _controller.dispose();
+    // Kontrolcüyü dispose etmeden önce, animasyonun durdurulması önemlidir.
     super.dispose();
   }
 
@@ -51,7 +68,16 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Lottie.asset('assets/lotties/home.json', height: 400.0),
+                      Lottie.asset(
+                        'assets/lotties/home.json',
+                        height:
+                            250.0, // Animasyon tamamlandığında yapılacak bir işlem varsa onLoaded kullanın.
+                        onLoaded: (composition) {
+                          _controller
+                            ..duration = composition.duration
+                            ..forward();
+                        },
+                      ),
                       SizedBox(height: 20),
                       TextField(
                         controller: controllerEmail,

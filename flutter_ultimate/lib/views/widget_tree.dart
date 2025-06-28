@@ -16,7 +16,7 @@ class WidgetTree extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter web app'),
+        title: Text('Levent Web App'),
         actions: [
           IconButton(
             onPressed: () async {

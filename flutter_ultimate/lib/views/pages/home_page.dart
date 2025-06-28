@@ -22,11 +22,11 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: 10.0),
-            HeroWidget(title: 'Levent Webapp', nextPage: CoursePage()),
+            HeroWidget(title: 'Levent Web App', nextPage: CoursePage()),
             ...List.generate(list.length, (index) {
               return ContainerWidget(
                 title: list.elementAt(index),
-                description: 'The description of this',
+                description: 'The Description of This...',
               );
             }),
           ],
