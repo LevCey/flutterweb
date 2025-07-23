@@ -21,9 +21,7 @@ class WidgetTree extends ConsumerWidget {
         actions: [
           IconButton(
             onPressed: () async {
-              ref.read(isDarkModeProvider.notifier).state = !ref
-                  .read(isDarkModeProvider.notifier)
-                  .state;
+              ref.read(isDarkModeProvider.notifier).update((state) => !state);
 
               // Save the theme mode to SharedPreferences
               final SharedPreferences prefs =
@@ -33,7 +31,11 @@ class WidgetTree extends ConsumerWidget {
                 ref.read(isDarkModeProvider),
               );
             },
-            icon: Icon(Icons.light_mode),
+            icon: Icon(
+              ref.watch(isDarkModeProvider)
+                  ? Icons.dark_mode
+                  : Icons.light_mode,
+            ),
           ),
           IconButton(
             onPressed: () {

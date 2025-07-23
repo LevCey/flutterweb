@@ -40,7 +40,9 @@ class EasyPage extends ConsumerWidget {
             ),
             ElevatedButton.icon(
               onPressed: () {
-                ref.read(riverpodEasyLevel.notifier).state--;
+                ref
+                    .read(riverpodEasyLevel.notifier)
+                    .update((state) => state - 1);
               },
               icon: Icon(Icons.remove, color: Colors.deepPurple.shade300),
               label: const Text(

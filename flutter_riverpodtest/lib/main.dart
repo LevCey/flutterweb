@@ -23,7 +23,7 @@ class MyApp extends ConsumerWidget {
         ),
         useMaterial3: true,
       ),
-      home: const HardPage(),
+      home: const EasyPage(),
     );
   }
 }
