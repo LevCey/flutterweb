@@ -14,55 +14,89 @@
   - _Requirements: 6.1, 6.2_
 
 - [ ] 2. Create core data models and state classes
-  - [ ] 2.1 Implement WalletState with Freezed
+  - [x] 2.1 Implement WalletState with Freezed
+
+
+
+
+
+
+
     - Create WalletState union types (initial, connecting, connected, disconnected, error)
     - Add copyWith and serialization methods
     - Write unit tests for WalletState
     - _Requirements: 6.4, 2.3_
   
-  - [ ] 2.2 Implement TransferState with Freezed
+  - [x] 2.2 Implement TransferState with Freezed
+
+
+
+
+
     - Create TransferState union types (initial, loading, success, error)
     - Add validation methods for transfer data
     - Write unit tests for TransferState
     - _Requirements: 4.1, 4.4, 4.5_
   
-  - [ ] 2.3 Create Transaction model
+  - [x] 2.3 Create Transaction model
+
+
+
+
+
     - Implement Transaction data class with Freezed
     - Add JSON serialization for API responses
     - Create transaction status enum
     - Write unit tests for Transaction model
     - _Requirements: 5.1, 5.2_
 
-- [ ] 3. Implement core services layer
-  - [ ] 3.1 Create Web3Service for blockchain interaction
+- [x] 3. Implement core services layer
+
+
+
+
+
+  - [x] 3.1 Create Web3Service for blockchain interaction
+
+
     - Implement Web3Client initialization for Monad network
     - Add methods for balance retrieval and transaction sending
     - Create transaction history fetching functionality
     - Write unit tests with mock Web3Client
     - _Requirements: 1.3, 3.2, 4.3, 5.1_
   
-  - [ ] 3.2 Implement WalletService for wallet management
+  - [x] 3.2 Implement WalletService for wallet management
+
+
     - Create wallet connection/disconnection methods
     - Implement wallet state stream for real-time updates
     - Add address validation and formatting utilities
     - Write unit tests for wallet operations
     - _Requirements: 2.1, 2.2, 2.4, 3.1_
 
-- [ ] 4. Create Riverpod ViewModels
-  - [ ] 4.1 Implement WalletViewModel provider
+- [-] 4. Create Riverpod ViewModels
+
+
+
+  - [x] 4.1 Implement WalletViewModel provider
+
+
     - Create Riverpod AsyncNotifier for wallet state management
     - Add connect/disconnect wallet methods
     - Implement balance refresh functionality
     - Write unit tests for WalletViewModel
     - _Requirements: 2.1, 2.2, 2.3, 3.3_
   
-  - [ ] 4.2 Implement TransferViewModel provider
+  - [x] 4.2 Implement TransferViewModel provider
+
+
     - Create Riverpod AsyncNotifier for transfer operations
     - Add form validation and state management
     - Implement token sending functionality with error handling
     - Write unit tests for TransferViewModel
     - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5_
   
+
   - [ ] 4.3 Create TransactionHistoryViewModel provider
     - Implement AsyncNotifier for transaction history
     - Add refresh and pagination functionality
